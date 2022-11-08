@@ -11,13 +11,13 @@ require('dotenv').config();
 // Mongodb
 // ---------
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.7grdkwx.mongodb.net/?retryWrites=true&w=majority`;
 console.log(uri)
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-async function run(){
-    try{
+async function run() {
+    try {
         const programCollection = client.db('fitness-programs').collection('programs')
 
         app.get('/programs', async (req, res) => {
@@ -25,20 +25,27 @@ async function run(){
             const cursor = programCollection.find(query);
             const programs = await cursor.toArray();
             res.send(programs);
+        });
+
+        app.get('/programs/:id', async(req, res) =>{
+            const id = req.params.id;
+            const query = {_id : ObjectId(id)}
+            const service = await programCollection.findOne(query);
+            res.send(service)
           });
     }
-    finally{
-        
+    finally {
+
     }
 }
 
 run().catch(error => console.error(error))
 
 
-app.get('/', (req,res) =>{
+app.get('/', (req, res) => {
     res.send('Port is running')
 });
 
-app.listen(port, () =>{
+app.listen(port, () => {
     console.log(`port ${port}`)
 })
