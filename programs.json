@@ -1,0 +1,104 @@
+[
+    {   
+        "program-id": "01",
+        "name": "AX1",
+        "img": "https://i.ibb.co/C77v5RS/AX1.png",
+        "rating": "9.7",
+        "price": "97.00",
+        "details": "Designed specifically for busy professional athletes who needed to stay in shape on the road, AX-1 makes athletic, science based training available to everyone, allowing anyone to get the same results as the pros; in their local gym or their living room. With just a few pieces of equipment (a pull up bar, some dumbbells, a resistance band) you can build the body of your dreams. Don’t have a piece of equipment? Simply swap out that workout for one that utilizes what you have. You won’t just be squatting, benching and deadlifting…but using our principles of Maximum Muscle Interaction, you’ll ignite muscles that should be working together that are being overlooked. People often report significant strength gains in even their first week by getting this right!",
+        "duration": "90",
+        "daily": "45",
+        "goals": "Lose fat & add muscle",
+        "experience": "Beginner to Intermediate"
+    },
+    {
+        "program-id": "02",
+        "name": "AX2",
+        "img": "https://i.ibb.co/ChNWHqR/AX2.png",
+        "rating": "9",
+        "price": "127.00",
+        "details": "There’s only one way to achieve the title of “ATHLEAN Supreme Athlete”. It’s reserved for the best of the best, the elite. ATHLEAN X-TREME builds on the foundation established in AX-1 and crosses the line of what is acceptable to produce results that are incredible. This intense training system is packed with 90 more days of workouts, challenges and drills designed to take your body to the next level. ATHLEAN X-TREME was born out of the science of strength utilizing advanced training protocols such as Time Under Tension, Density Training, X-tinction Training and more. Each week presents a new phase and a new challenge that you must pass to earn your way into the next. This is not some glorified jazzercise workout available on the home shopping channel. This is X-TREME. You’ve been warned.",
+        "duration": "90",
+        "daily": "60",
+        "goals": "Lose fat & add muscle",
+        "experience": "Intermediate to Advanced"
+    },
+    {
+        "program-id": "03",
+        "name": "XERO",
+        "img": "https://i.ibb.co/brF9FYX/XERO.png",
+        "rating": "8",
+        "price": "100.00",
+        "details": "In just 6 weeks turn your body into a muscle building, fat burning machine without ever stepping foot into a gym. No matter your current fitness abilities ATHLEAN XERO will help you improve the way you move, look and feel without ever needing a single piece of equipment.Building muscle and losing fat is easier than ever! This simple to follow meal plan provides the step by step guidance to make sure you never fail while keeping it adaptable to your specific tastes. No calorie counting or measuring required – and STILL get shredded!",
+        "duration": "150",
+        "daily": "30",
+        "goals": "Lose fat & add muscle",
+        "experience": "Intermediate to Advanced"
+    },
+    {
+        "program-id": "04",
+        "name": "XERO2",
+        "img": "https://i.ibb.co/WF10D0w/XERO2-TRAINING-PAGE-COVER.png",
+        "rating": "9.5",
+        "price": "180.00",
+        "details": "XERO protocol focuses on intensity methods and techniques to create short effective workouts. Countless studies have shown the benefits of training to failure. With the XERO protocol you’ll be training to and beyond failure with all new protocols that make workouts exciting while delivering results.Traditional training methods rely on excessive amounts of volume to cause hypertrophy. This can be shown to provide results, especially in new trainees, however most experts agree there are more direct ways to create hypertrophy especially in experienced athletes.",
+        "duration": "90",
+        "daily": "45",
+        "goals": "Add muscle",
+        "experience": "Intermediate to Advanced"
+    },
+    {
+        "program-id": "05",
+        "name": "XX-FOR-WOMEN",
+        "img": "https://i.ibb.co/gS7sZpt/XX-FOR-WOMEN.png",
+        "rating": "7",
+        "price": "43.00",
+        "details": "Every woman is different, and every woman leads a busy life! If there’s no flexibility built into your fitness and nutrition program, it’ll be impossible to stick to!Ladies, it’s time to redefine what being fit really means. Getting you strong, confident and athletically toned is my number one priority…and a responsibility I fully accept! I promise I will get you in better shape than you’ve ever been before, and in far less time than you’re used to!",
+        "duration": "60",
+        "daily": "15",
+        "goals": "Lose fat & add muscle",
+        "experience": "Beginner to Intermediate"
+    },
+    {
+        "program-id": "06",
+        "name": "MAX-SHRED",
+        "img": "https://i.ibb.co/HLcw5zc/MAX-SHRED.png",
+        "rating": "9.2",
+        "price": "120.00",
+        "details": "Beginners are often forced to do boring, limited workouts that leave them disinterested and likely to fail. Not with Max/Shred. Each exciting workout is designed to deliver results today regardless of your current fitness level and allow you to scale up as your abilities do.Even if your body fat percentage is already in single digits, MAX/SHRED can take you from lean to absolutely shredded. Whether you are preparing for a competition or just trying to show off ripped muscle definition, this program will deliver!",
+        "duration": "90",
+        "daily": "45",
+        "goals": "Lose fat",
+        "experience": "Beginner through Advanced"
+    },
+    {
+        "program-id": "07",
+        "name": "JACKED",
+        "img": "https://i.ibb.co/c30jbZR/jacked-cover-yellow.png",
+        "rating": "8.5",
+        "price": "90.00",
+        "details": "JACKED takes advantage of the latest in science based muscle building to place you in hypertophy range whether you have a full rack of dumbbells or a single pair of dumbbells. Removing the need for a full gym, you can perform JACKED in your own home, a hotel gym or anywhere you have access to a rack of dumbbells, adjustable blocks or even a single set of dumbbells.If your dumbbells are too light the jacked up path will provide you exercises, techniques and strategies designed to make the exercise more difficult. ",
+        "duration": "60",
+        "daily": "30",
+        "goals": "Add muscle",
+        "experience": "Intermediate to Advanced"
+    },
+    {
+        "program-id": "08",
+        "name": "ELASTX",
+        "img": "https://i.ibb.co/PzsxbvP/elastx-cover-yellow.png",
+        "rating": "9.8",
+        "price": "85.00",
+        "details": "The age of bands being an “inferior” training method to weights is over. This 90 day program is going to prove just how powerful resistance bands can be when it comes to building muscle.The unique strength curve of bands can jolt new size…from staleness, especially if you’ve never dedicated a training block to using bands alone. Throw in the fact that resistance bands are incredibly kind to the joints, and you’ve got the perfect program for those looking to switch things up without sacrifice.",
+        "duration": "90",
+        "daily": "40",
+        "goals": "Add muscle",
+        "experience": "Intermediate to Advanced"
+    }
+]
+
+
+
+
+
+
