@@ -27,6 +27,12 @@ async function run() {
             res.send(programs);
         });
 
+        app.post('/programs', async(req, res)=>{
+            const program = req.body;
+            const result = await programCollection.insertOne(program);
+            res.send(result)
+          })
+
         app.get('/programs/:id', async(req, res) =>{
             const id = req.params.id;
             const query = {_id : ObjectId(id)}
