@@ -1,5 +1,8 @@
+// Fake Database with initial data json file is added but never used
+
 const express = require('express');
 const cors = require('cors');
+var jwt = require('jsonwebtoken');
 const app = express();
 const port = process.env.Port || 5000;
 
@@ -16,8 +19,29 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@clu
 console.log(uri)
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
+function verifyJWT(req, res, next){
+    const authHeader= req.headers.authorization;
+    if(!authHeader){
+        res.status(401).send({messege: 'unauthorized access'})
+    }
+     const token = authHeader.split(' ')[1];
+     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET_CODE, function(error, decoded){
+        if(error){
+            res.status(401).send({messege: 'unauthorized access'})
+        }
+        req.decoded = decoded;
+        next();
+     })
+}
+
 async function run() {
     try {
+
+        app.post('/jwt', (req, res)=>{
+            const user = req.body;
+            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET_CODE, {expiresIn: '6h'});
+            res.send({token})
+          })
         // --------------------------
         // Program Database
         // --------------------------
@@ -69,6 +93,44 @@ async function run() {
             const reviews = await cursor.toArray();
             res.send(reviews);
         });
+
+        app.get('/reviews/user/:user', async (req, res) => {
+            const query = {user: (req.params.user)}
+            const cursor = reviewsCollection.find(query);
+            const reviews = await cursor.toArray();
+            res.send(reviews);
+        });
+
+        app.delete('/reviews/id/:id',verifyJWT, async (req, res) => {
+            const id = req.params.id;
+            const query = {_id: ObjectId(id)}
+            console.log(query)
+            const result = await reviewsCollection.deleteOne(query);
+            res.send(result)
+        });
+
+        // app.get('/reviews/id/:id', async (req, res) => {
+        //     console.log(req.headers)
+        //     const query = {_id: ObjectId(req.params.id)}
+        //     const cursor = reviewsCollection.find(query);
+        //     const reviews = await cursor.toArray();
+        //     res.send(reviews);
+        // });
+
+        app.patch('/reviews/id/:id', async(req, res)=>{
+            const id = req.params.id;
+            console.log(id)
+            const review = req.body.review;
+            console.log(review)
+            const query = {_id : ObjectId(id)};
+            const updatedDoc = {
+              $set: {
+                review: review
+              }
+            }
+            const result = await reviewsCollection.updateOne(query, updatedDoc);
+            res.send(result)
+          })
     }
     finally {
 
