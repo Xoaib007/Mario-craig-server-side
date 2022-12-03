@@ -36,17 +36,20 @@ function verifyJWT(req, res, next){
 
 async function run() {
     try {
+        
+        const reviewsCollection = client.db('fitness-programs').collection('reviews');
+        const programCollection = client.db('fitness-programs').collection('programs');
+        const userCollection = client.db('fitness-programs').collection('users');
+
+        // jwt 
 
         app.post('/jwt', (req, res)=>{
             const user = req.body;
             const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET_CODE, {expiresIn: '6h'});
             res.send({token})
           })
-        // --------------------------
-        // Program Database
-        // --------------------------
 
-        const programCollection = client.db('fitness-programs').collection('programs');
+        // Programs
 
         app.get('/programs', async (req, res) => {
             const query = {}
@@ -68,11 +71,7 @@ async function run() {
             res.send(service)
         });
 
-        //--------------------------
-        // Review Database
-        //--------------------------
-
-        const reviewsCollection = client.db('fitness-programs').collection('reviews');
+        // Reviews
 
         app.get('/reviews', async (req, res) => {
             const query = {}
@@ -109,14 +108,6 @@ async function run() {
             res.send(result)
         });
 
-        // app.get('/reviews/id/:id', async (req, res) => {
-        //     console.log(req.headers)
-        //     const query = {_id: ObjectId(req.params.id)}
-        //     const cursor = reviewsCollection.find(query);
-        //     const reviews = await cursor.toArray();
-        //     res.send(reviews);
-        // });
-
         app.patch('/reviews/id/:id', async(req, res)=>{
             const id = req.params.id;
             console.log(id)
@@ -124,13 +115,35 @@ async function run() {
             console.log(review)
             const query = {_id : ObjectId(id)};
             const updatedDoc = {
-              $set: {
-                review: review
-              }
+                $set:{
+                    review: review
+                }
             }
             const result = await reviewsCollection.updateOne(query, updatedDoc);
             res.send(result)
           })
+
+        // users
+        
+        app.get('/users', async (req,res)=>{
+            const query= {};
+            const allUsers= await userCollection.find(query).toArray();
+            res.send(allUsers)
+        })
+        
+        app.get('/users/:email', async (req,res)=>{
+            const email=req.params.email;
+            const query= {email: email};
+            const result= await userCollection.findOne(query);
+            res.send(result)
+        })
+
+        app.post('/users', async (req, res) => {
+            const user= req.body;
+            const result = await userCollection.insertOne(user);
+            res.send(result)
+        });
+
     }
     finally {
 
